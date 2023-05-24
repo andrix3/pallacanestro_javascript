@@ -3,23 +3,23 @@ let x;
 
 let G = 9.81;
 
-function setX(x) {
-    this.x = x;
+function setX(xx) {
+    x = xx;
 }
 
-function setAlfa(alfa) {
-    if(alfa > 0 && alfa < 90)
-        this.alfa = alfa;
+function setAlfa(alfaFun) {
+    if(alfaFun > 0 && alfaFun < 90)
+        alfa = alfaFun;
 }
-function setV(v) {
-    if(v > 0)
-        this.v = v;
+function setV(vv) {
+    if(vv > 0)
+        v = vv;
 }
 
-function setVal(angolo, v2) {
-    if(angolo > 0 && angolo < 90 && v2 > 0) {
-        this.alfa = angolo;
-        this.v = v2;
+function setVal(angoloo, v22) {
+    if(angoloo > 0 && angoloo < 90 && v22 > 0) {
+        alfa = angoloo;
+        v = v22;
     }
 }
 
