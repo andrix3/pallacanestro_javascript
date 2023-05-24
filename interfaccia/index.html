@@ -8,17 +8,33 @@
   <title>Basket</title>
   <script src="./../logica/logica.js"></script>
   <script src ="./interfaccia.js"></script>
+  
+  
 </head>
 
 <body>
   <label for="angolo">angolo = </label> <input type="number" id="angolo"><br>
   <label for="velocita">velocita = </label> <input type="number" id="velocita"><br>
-  <button id ="but">start</button><br>
+  <button id ="but">start</button>
+  <button id ="reset">reset</button><br>
   
 <div height ="400" width ="600">
   <img width = "500" height ="500" id = "canestro" src="./images/canestro.jpg" alt="canestro.jpg" style="top: 100; left: 1000; position: absolute;">
   <img width = "50" height ="50" id = "palla" src="./images/palla.png" alt="palla.png" style="top: 100; left: 500; position: absolute;">
 </div>
+
+<script>
+  var elem = document.getElementById("palla");  
+
+  elem.style.top = 500 + 'px'; 
+  elem.style.left = 100 + 'px'; 
+
+  var elem = document.getElementById("canestro");  
+
+  elem.style.top = 100 + 'px'; 
+  elem.style.left = 500 + 'px'; 
+
+</script>
 
 </body>
 

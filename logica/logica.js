@@ -1,5 +1,5 @@
 let alfa, v;
-let x;
+//let x;
 
 let G = 9.81;
 
@@ -33,7 +33,8 @@ function calcolaGittata() {
     return (int) ((2 * Math.pow(v, 2) * Math.cos(rad) * Math.sin(rad)) / G);
 }
 
-function calcolaY() {
+function calcolaY(x, alfa, v) {
+    console.log("alfa", alfa)
     let rad = radianti(alfa);
     let y = (-(G / (2 * Math.pow(v, 2) * Math.pow(Math.cos(rad), 2)) * Math.pow(x, 2))) +  Math.tan(rad) * x;
     
