@@ -34,11 +34,10 @@ function calcolaGittata() {
 }
 
 function calcolaY(x, alfa, v) {
-    console.log("alfa", alfa)
     let rad = radianti(alfa);
     let y = (-(G / (2 * Math.pow(v, 2) * Math.pow(Math.cos(rad), 2)) * Math.pow(x, 2))) +  Math.tan(rad) * x;
-    
-    if(y >= 0) {
+
+    if(y >= -50) {
         return y;
     }
     else
