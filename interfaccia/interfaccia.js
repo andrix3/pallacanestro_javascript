@@ -8,86 +8,67 @@ var notifica = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("but").addEventListener("click", () => {
-    canestro();
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("reset").addEventListener("click", () => {
-    reset();
-  });
-});
-
-function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
-
-function canestro() {
-  let x = y = 0;
-
-  angolo = document.getElementById("angolo").value;
-  velocita = document.getElementById("velocita").value;
-
-  setVal(angolo, velocita);
-  isCanestro = false;
-  notifica = false;
-
-  var elem = document.getElementById("palla");  
-
-  clearInterval(id);
-
-  curY = 500;
-  curX = 100;
-
-  id = setInterval(frame, 50);
-  function frame() {
-    y = calcolaY(x, angolo, velocita);
-    console.log(y);
-
-    if (y != -1) {
-      var centro = document.getElementById("centro");
-      var palla = document.getElementById("palla"); 
-
-      isCanestro = sonoSovrapposti(centro, palla);
-      
-      if(isCanestro && !notifica){
-        alert("Hai fatto canestro :)");
-        notifica = true;
-      }
-      sleep(5);
-      
-      curY = curY - y;
-      curX = curX + x;
-
-      elem.style.top = (curY) + 'px'; 
-      elem.style.left = (curX) + 'px';
-
-    }else{
-      clearInterval(id);
-
-      if(!isCanestro && !notifica)
-        alert("Non hai fatto canestro :(");
-    }
-
-    x += 0.3; 
-  }
-}
-
-function reset(){
-  var elem = document.getElementById("palla");  
-
-  elem.style.top = 600 + 'px'; 
-  elem.style.left = 100 + 'px'; 
+    let x = y = 0;
   
-  curY = 600;
-  curX = 100;
+    angolo = document.getElementById("angolo").value;
+    velocita = document.getElementById("velocita").value;
+  
+    setVal(angolo, velocita);
+    isCanestro = false;
+    notifica = false;
+  
+    var elem = document.getElementById("palla");  
+  
+    clearInterval(id);
+  
+    curY = 500;
+    curX = 100;
+  
+    id = setInterval(frame, 50);
 
-  clearInterval(id);
-}
+    function frame () {
+      y = calcolaY(x, angolo, velocita);
+      console.log(y);
+  
+      if (y != -1) {
+        var centro = document.getElementById("centro");
+        var palla = document.getElementById("palla"); 
+  
+        isCanestro = sonoSovrapposti(centro, palla);
+        
+        if(isCanestro && !notifica){
+          alert("Hai fatto canestro :)");
+          notifica = true;
+        }
+        
+        curY = curY - y;
+        curX = curX + x;
+  
+        elem.style.top = (curY) + 'px'; 
+        elem.style.left = (curX) + 'px';
+  
+      }else{
+        clearInterval(id);
+  
+        if(!isCanestro && !notifica)
+          alert("Non hai fatto canestro :(");
+      }
+  
+      x += 0.3; 
+    }
+  });
+  document.getElementById("reset").addEventListener("click", () => {
+    var elem = document.getElementById("palla");  
+  
+    elem.style.top = 600 + 'px'; 
+    elem.style.left = 100 + 'px'; 
+    
+    curY = 600;
+    curX = 100;
+  
+    clearInterval(id);
+  });
+});
 
 function sonoSovrapposti(img1, img2) {
   // Ottieni le posizioni dei bordi delle immagini
